@@ -1,0 +1,52 @@
+html{
+    height: 1100px;
+}
+#loginShowBTN{
+    width: 100px;
+    height: 30px;
+    color: blue;
+    background-color: transparent;
+    border: none;
+  }
+
+#loginShowBTN:hover{
+    color: lightblue;
+}
+  
+#loginShowBTN:active{
+     color: red;
+}
+
+#loginPanel{
+    width: 100%;
+    height: 200px;
+    background-color: grey;
+    display: none;
+    position: fixed;
+    margin-top: 100px;
+    /* display: inline-block; */
+}
+
+#loginPanel ul{
+    width: 100%;
+    text-align: center;
+    display: inline-block;
+}
+
+#loginPanel ul:first-child{
+    margin-top: 30px;
+}
+
+#loginPanel label{
+    width: 80px;
+    color: red;
+    /* float: left; */
+    margin-left: -30px;
+}
+
+#loginPanel input["type=text"]{
+    width: 200px;
+}
+  
+  
+  
