@@ -39,6 +39,7 @@ include('../BackEnd/DB.init.php');
 
 		  <input type="submit" id="loginUser" name="LoginAdmin"/>
 		  <input type="checkbox" id="rememberMe" name="RememberMe" value="true"/>
+      <input type="button" id="DBInitBTN" name="DBInit" value="Initialise Database"/>
       </div>
 </form>
 

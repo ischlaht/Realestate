@@ -14,7 +14,7 @@
     $DataBasePassword = "password";
 
     //Encrypted"SHA1" value to be stored in Database if not already initialised(DB.Init.php is the init file that excecutes these values for the first server start-up...). SELF INITIALIZING :)
-    $UsernameValue = 
+    // $UsernameValue = 
 
    //Cookie Configuration
 $CookieConfig = ($_SERVER['HTTP_HOST'] != 'localhost') ? $_SERVER['HTTP_HOST'] : false;
