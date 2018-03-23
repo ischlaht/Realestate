@@ -31,7 +31,7 @@ if($Setupstmt = $DBConn->prepare($AdminSetup)){
                 $Insertstmt->execute();
                 echo "<script>window.alert('Database Initialised</script>";
             }
-        }
+        } 
 }
     
 
