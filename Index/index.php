@@ -1,11 +1,8 @@
-
-
 <?php 
 include('../BackEnd/Login.Controller.php');
 include('../BackEnd/DB.init.php');
-include('../BackEnd/functions.php');
+include('../BackEnd/Listings.Controller.php');
 ?>
-
 
 <!Doctype html>
 <html lang="en">
@@ -34,7 +31,6 @@ include('../BackEnd/functions.php');
 </head>
 
 
-
 <body>
 
         <!-- Login System -->
@@ -45,7 +41,6 @@ include('../BackEnd/functions.php');
             <input type="text" id="loginUsername" name="LoginUsername"/></ul>
             <ul><label>Password :</label>
             <input type="text" id="loginPassword" name="LoginPassword"/></ul>
-
             <input type="submit" id="loginUser" name="LoginAdmin"/>
             <input type="checkbox" id="rememberMe" name="RememberMe" value="true"/>
         <input type="button" id="DBInitBTN" name="DBInit" value="Initialise Database"/>
@@ -98,8 +93,6 @@ include('../BackEnd/functions.php');
         </form>
 
 <script src="JS.controller.js"></script>
-
-
 </body>
 
 
