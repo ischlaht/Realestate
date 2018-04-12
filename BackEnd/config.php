@@ -19,9 +19,10 @@
    //Cookie Configuration
 $CookieConfig = ($_SERVER['HTTP_HOST'] != 'localhost') ? $_SERVER['HTTP_HOST'] : false;
 
-
-
-
+    //Listing folders configuration
+$listingDir = "../Listings/";
+$listingImagesDir = "../Listings/Images/";
+$allowedEXT = array("jpg", "jpeg", "gif", "png", "tiff");
 
 
 //Logging System-----------------------------------------------
@@ -45,8 +46,6 @@ class Logger{
 }
 $Logger = new Logger($LogThis);
 //Loggin system END------------------------------------------
-
-
 
 
 

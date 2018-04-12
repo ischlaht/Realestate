@@ -48,5 +48,44 @@ html{
     width: 200px;
 }
   
+#ListingsAPP{
+    /* padding: 20px; */
+    padding-top: 20px;
+    width: 100%;
+    min-width: 320px;
+    height: 2100px;
+    margin: auto;
+    background-color: rgba(31, 29, 29, 0.907);
+}
   
+#preview center{
+    font-size: 120%;
+}
+
+#preview{
+    width: 250px;
+    height: 258px;
+    margin-top: 20px;
+    margin: auto;
+    padding-right: 10px;    
+    padding-left: 10px;
+    border-radius: 10px;
+    background-color: white;
+}
   
+#ListingsAPP label{
+    width: 100%;
+    height: auto;
+    margin-top: 5px;
+    padding-left: 20px;
+    font-size: 96%;
+    border-top: 3px solid white;
+    color: black;
+}
+
+#ListingsAPP .form-control{
+    width: 90%;
+    margin: auto;
+    color: black;
+    font-size: 90%;
+}

@@ -39,12 +39,14 @@ $error = array();
                             if(!empty($_POST['RememberMe'])){
                                 setcookie('Session',       'TRUELY',           time()+3600*24*60, '/', $CookieFix, false);
                                 setcookie('Logged-In',     'Logged-In',        time()+3600*24*60, '/', $CookieFix, false);
-                                setcookie('User',          $userName,           time()+3600*24*60, '/', $CookieFix, false);
+                                setcookie('User',          $userName,          time()+3600*24*60, '/', $CookieFix, false);
+                                setcookie('Admin',         'TRUE',             time()+3600*24*60, '/', $CookieFix, false);                                
                             }
                             else{
                                 $_SESSION['Session']    = 'TRUELY';
                                 $_SESSION['Logged-In']  = 'Logged-In';
                                 $_SESSION['User']       = $userName;
+                                $_SESSION['Admin']      == "TRUE";
                             }
                         }
                         
