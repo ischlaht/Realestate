@@ -2,7 +2,6 @@
 include_once('config.php');
 // if(isset($_GET['InsertListing'])){
 
-
     //Listing Dirtectory globals set in Config file.
 $listingFolder = $GLOBALS['listingDir'];
 $imageFolder = $GLOBALS['listingImagesDir'];
@@ -10,7 +9,7 @@ $imageFolder = $GLOBALS['listingImagesDir'];
 $allowedEXT = $GLOBALS['allowedEXT'];
     //Custom error handler
 $uploadError = array();
-
+    //Start of uplaod
 if(isset($_POST['listingSubmit'])){
     if($_FILES['listingImage']['size'] > 2){
         $file = $_FILES['listingImage'];
@@ -20,20 +19,19 @@ if(isset($_POST['listingSubmit'])){
         $file_type= $file['type'];
         $new_name = $_POST['listingName'];
         
-        
-        $info = pathinfo($file_name);
-        $ext = $info['extension']; // get the extension of the file.
-        $extText = explode('.', $file_name);//another versoin of file extention.
-        
+            //Extension controls.
+        $info = pathinfo($file_name);//Path info in order to get extension info.
+        $ext = $info['extension']; //Get the extension of the file.
+        $extText = explode('.', $file_name);//Another versoin of file extention.
+            //Conversion of listingName into file to check if file exists already.
         $file_name_check = $listingDir.basename($listingDir.$new_name.".".$ext);
-        $ListingI = $_FILES['listingImage'];
+    //END OF FILE CONFIG
+            //Variables of listing info to store in json file.   
         $listingName = $_POST['listingName'];
         $listingType = $_POST['listingType'];
 
             if(isset($_COOKIE['Admin']) || isset($_SESSION['Admin'])){
                 if($_COOKIE['Admin'] == "TRUE" || $_SESSION['Admin'] == "TRUE"){
-
-
                     if($file_size > 1073741824*3){
                         array_push($uploadError, "File to large.");
                         echo "<script>alert('Photo size must be smaller then 3 GB!')</script>";
@@ -51,13 +49,15 @@ if(isset($_POST['listingSubmit'])){
                         echo "<script>alert('File type not allowed')</script>"; 
                     }
                     elseif(count($uploadError) == 0){
+                            //Moving image to folder.
                         if(move_uploaded_file($file_tmp, $imageFolder.$new_name.".".$ext)){
+                                //Creating json onject.
                             $obj = new stdClass();
                             $obj->image = $new_name.".".$ext;
                             $obj->name = $listingName;
                             $obj->type = $listingType;
                             $myobj = json_encode($obj);
-
+                                    //Insert json object into folder with json file.
                                 $writer = fopen($listingFolder.$listingName.".json", "w");
                                 fwrite($writer, $myobj);
                                 echo $myobj;
@@ -70,12 +70,10 @@ if(isset($_POST['listingSubmit'])){
                             echo "<script>alert('Failed to upload photo.')</script>";
                         }
                     }
-
                 }
                 else{
                     echo "<script>alert('Must be an admin!')</script>";        
                 }
-
             }
             else{
                 echo "<script>alert('Must be an admin!')</script>";

@@ -1,5 +1,5 @@
 html{
-    height: 1100px;
+    /* height: 2000px; */
 }
 #loginShowBTN{
     width: 100px;
@@ -48,12 +48,23 @@ html{
     width: 200px;
 }
   
+
+/*
+ ------------------------------
+------------------------------------------
+--Listing APP---- Listing APP----- ListingAPP-----------------------------------------------
+------------------------------------------
+--------------------------------- 
+*/
+
+
+
+
 #ListingsAPP{
-    /* padding: 20px; */
     padding-top: 20px;
     width: 100%;
     min-width: 320px;
-    height: 2100px;
+    height: 2900px;
     margin: auto;
     background-color: rgba(31, 29, 29, 0.907);
 }
@@ -78,9 +89,9 @@ html{
     height: auto;
     margin-top: 5px;
     padding-left: 20px;
-    font-size: 96%;
+    font-size: 100%;
     border-top: 3px solid white;
-    color: black;
+    color: white;
 }
 
 #ListingsAPP .form-control{
@@ -88,4 +99,8 @@ html{
     margin: auto;
     color: black;
     font-size: 90%;
+    border: 2px solid black;
+}
+#ListingAPP .form-control:active{
+    border: 2px solid red;
 }

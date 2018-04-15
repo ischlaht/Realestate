@@ -7,7 +7,7 @@ $('#loginShowBTN').click( function(){
 });
 
 
-
+$('.collapse').collapse();
 
 
 // var ListingsAPP = angular.module('ListingsAPP', ['ngSanitize']);

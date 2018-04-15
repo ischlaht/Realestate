@@ -16,9 +16,11 @@ include('../BackEnd/Listings.Controller.php');
             <!-- Bootstrap CSS -->
             <link rel="stylesheet" href="../Lib/Bootstrap/node_modules/bootstrap/dist/css/bootstrap.css"/>
             <!-- Bootstrap JS -->
-            <link href="../Lib/Bootstrap/node_modules/bootstrap/dist/js/bootstrap.js"/>    
+            <link href="../Lib/Bootstrap/node_modules/bootstrap/dist/js/bootstrap.js"/>  
+            <link href="../Lib/Bootstrap/node_modules/bootstrap/dist/js/bootstrap..min.js"/>                  
             <!-- jQuery-->
             <script src="../Lib/JQuery/JMain/node_modules/jquery/dist/jquery.js"></script> 
+            <script src="../Lib/JQuery/JMain/node_modules/jquery/dist/jquery.min.js"></script> 
             <!-- Anguular Main-->
             <script src="../Lib/Angular/Ng-Main/node_modules/angular/angular.js"></script>
             <!-- Anguilar Sanatize-->
@@ -48,49 +50,49 @@ include('../BackEnd/Listings.Controller.php');
     </form>
 
 
+            <!-- <div id="uploadMessage" style="color: black"></div> -->
         <!-- New Listing System -->
-    <div id="ListingsAPP"><!-- //Bootstrapped NG-APP -->
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ListingsAPP">Simple collapsible</button>
+    <div id="ListingsAPP" class="collapse"><!-- //Bootstrapped NG-APP -->
         <form method="POST" action="index.php" enctype="multipart/form-data" ng-Controller="ListingInsert">
-            <div id="preview"><center>Choose Cover Photo</center></div>
+            <div id="preview" data-toggle="tooltip" title="Click to select cover photo."><center>Choose Cover Photo</center></div>
 
-    <input type="submit" name="listingSubmit" ng-click="insertNewListing()" id="listingSubmit"/>
-    <div id="uploadMessage" style="color: black"></div>
-                <input type="file" name="listingImage" id="listingImage" hidden/>
+                    <input type="file" name="listingImage" id="listingImage" hidden/>
                     <label>Listing Name</label>
-                        <input type="text" name="listingName" id="listingName" class="form-control"/>
-                    <label>Listing Type (House, Apartment, etc)</label>
-                        <input type="text" name="listingType" id="listingType" class="form-control"/>                
-                    <label>Number of Bedrooms</label>
-                        <input type="text" name="listingBedrooms" id="listingBedrooms" class="form-control"/>    
-                    <label>Number of Bathrooms</label>    
-                        <input type="text" name="listingBathrooms" id="listingBathrooms" class="form-control"/> 
-                    <label>Home Size in Square Feet</label>   
-                        <input type="text" name="listingSize" id="listingSize" class="form-control"/>  
-                    <label>Lot Size</label> 
-                        <input type="text" name="listingLotSize" id="listingLotSize" class="form-control"/>                             
-                    <label>Heating (Electric, Gas, Fireplace, Wood Stove, etc)</label>
-                        <textarea name="listingHeating" id="listingHeating" class="form-control" cols="auto" rows="2"></textarea>  
+                        <input type="text" name="listingName" id="listingName" class="form-control" placeholder="Name/Title of listing" value="<?php if(isset($_POST['listingName'])){echo $_POST['listingName'];}?>"/>
+                    <label>Listing Type</label>
+                        <input type="text" name="listingType" id="listingType" class="form-control" placeholder="House/Apartment/Town-House/etc" value="<?php if(isset($_POST['listingType'])){echo $_POST['listingType'];}?>"/>                
+                    <label>Home Size</label>   
+                        <input type="text" name="listingSize" id="listingSize" class="form-control" placeholder="Size of the inside" value="<?php if(isset($_POST['listingSize'])){echo $_POST['listingSize'];}?>"/>  
+                        <input type="text" name="listingLotSize" id="listingLotSize" class="form-control" placeholder="Size of the lot/property" value="<?php if(isset($_POST['listingLotSize'])){echo $_POST['listingLotSize'];}?>" style="margin-top: 5px; margin-bottom: 5px;"/>                             
+                        <input type="text" name="listingBedrooms" id="listingBedrooms" class="form-control" placeholder="How many bedrooms" value="<?php if(isset($_POST['listingBedrooms'])){echo $_POST['listingBedrooms'];}?>" style="margin-top: 5px; margin-bottom: 5px;"/>    
+                        <input type="text" name="listingBathrooms" id="listingBathrooms" class="form-control" placeholder="How many bathrooms" value="<?php if(isset($_POST['listingBathrooms'])){echo $_POST['listingBathrooms'];}?>"/> 
+                    <label>Heating</label>
+                        <textarea name="listingHeating" id="listingHeating" class="form-control" cols="auto" rows="2" placeholder="Forced Air, Electric, Gas, Fireplace, Wood Stove, etc" value="<?php if(isset($_POST['listingHeating'])){echo $_POST['listingHeating'];}?>"></textarea>  
                     <label>Cooling</label>  
-                        <textarea name="listingCooling" id="listingCooling" class="form-control" cols="auto" rows="2"></textarea>                          
+                        <textarea name="listingCooling" id="listingCooling" class="form-control" cols="auto" rows="2" placeholder="Evaporative Cooler, HVAC, etc" value="<?php if(isset($_POST['listingCooling'])){echo $_POST['listingCooling'];}?>"></textarea>                          
                     <label>Included Appliances</label>
-                        <textarea name="listingAppliances" id="listingAppliances" class="form-control" cols="auto" rows="3"></textarea>                  
-                    <label>Yard Description</label>                   
-                        <textarea name="listingYard" id="listingYard" class="form-control" cols="auto" rows="2"></textarea>
-                    <label>Garage and Shed Description</label>
-                        <textarea name="listingGarageShed" id="listingGarageShed" class="form-control" cols="auto" rows="2"></textarea>                
+                        <textarea name="listingAppliances" id="listingAppliances" class="form-control" cols="auto" rows="3" placeholder="Washer/Dryer, Dishwasher, etc" value="<?php if(isset($_POST['listingAppliances'])){echo $_POST['listingAppliances'];}?>"></textarea>                  
+                    <label>Yard Details</label>                   
+                        <textarea name="listingYard" id="listingYard" class="form-control" cols="auto" rows="2" placeholder="Fenced, Size, Grass, Dirt, etc" value="<?php if(isset($_POST['listingYard'])){echo $_POST['listingYard'];}?>"></textarea>
+                    <label>Garage and Shed Details</label>
+                        <textarea name="listingGarageShed" id="listingGarageShed" class="form-control" cols="auto" rows="2" placeholder="Garage and Shed details" value="<?php if(isset($_POST['listingGarageShed'])){echo $_POST['listingGarageShed'];}?>"></textarea>                
                     <label>Address</label>
-                        <textarea name="listingAddress" id="listingAddress" class="form-control" rows="3" cols="auto"></textarea>
-                    <label>Price</label>
-                        <input type="text" name="listingPrice" id="listingPrice" class="form-control"/>
+                        <textarea name="listingAddress" id="listingAddress" class="form-control" rows="3" cols="auto" placeholder="State, City, Zip Code, Street, Number, etc" value="<?php if(isset($_POST['listingAddress'])){echo $_POST['listingAddress'];}?>"></textarea>
+                    <label>Price/Rent </label>
+                        <textarea name="listingPrice" id="listingPrice" class="form-control" rows="3" cols="auto" placeholder="Price of home or monthly rent" value="<?php if(isset($_POST['listingPrice'])){echo $_POST['listingPrice'];}?>"></textarea>
+                    <label>Finance Details</label>
+                        <textarea name="listingFinanceDetails" id="listingFinanceDetails" class="form-control" cols="auto" rows="2" placeholder="Financing info important to this home" value="<?php if(isset($_POST['listingFinanceDetails'])){echo $_POST['listingFinanceDetails'];}?>"></textarea>
                     <label>Ready Date</label>       
-                        <input type="text" name="listingReadyDate" id="listingReadyDate" class="form-control"/>              
+                        <input type="text" name="listingReadyDate" id="listingReadyDate" class="form-control" placeholder="Date new tenant can move in" value="<?php if(isset($_POST['listingReady'])){echo $_POST['listingReady'];}?>"/>              
                     <label>Date Built</label>
-                        <input type="text" name="listingDateBuilt" id="listingDateBuilt" class="form-control"/>           
+                        <input type="text" name="listingDateBuilt" id="listingDateBuilt" class="form-control" placeholder="Date the home was built" value="<?php if(isset($_POST['listingDateBuilt'])){echo $_POST['listingDateBuilt'];}?>"/>           
                     <label>Extra Description</label>			
-                        <textarea name="listingDescription" id="listingDescription" class="form-control" rows="4" cols="auto"></textarea>
+                        <textarea name="listingExtraDescription" id="listingExtraDescription" class="form-control" rows="4" cols="auto" placeholder="Any other important details/ description of home" data-toggle="tooltip" title="Use this for any extra information you feel is necessary." value="<?php if(isset($_POST['listingExtraDescription'])){echo $_POST['listingExtraDescription'];}?>"></textarea>
                     <label for="This is just for a border"></label>
-            </div>
+                        <input type="submit" name="listingSubmit" ng-click="insertNewListing()" id="listingSubmit" data-toggle="tooltip" title="Click to upload new listing."/>
         </form>
+    </div>
 
 <script src="JS.controller.js"></script>
 </body>
