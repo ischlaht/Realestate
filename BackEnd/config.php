@@ -20,7 +20,7 @@
 $CookieConfig = ($_SERVER['HTTP_HOST'] != 'localhost') ? $_SERVER['HTTP_HOST'] : false;
 
     //Listing folders configuration
-$listingDir = "../Listings/";
+$listingDir = "../Listings/Listingsjson/";
 $listingImagesDir = "../Listings/Images/";
 $allowedEXT = array("jpg", "jpeg", "gif", "png", "tiff");
 

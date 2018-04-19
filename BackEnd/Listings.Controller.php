@@ -1,6 +1,5 @@
 <?php
 include_once('config.php');
-// if(isset($_GET['InsertListing'])){
 
     //Listing Dirtectory globals set in Config file.
 $listingFolder = $GLOBALS['listingDir'];
@@ -11,19 +10,21 @@ $allowedEXT = $GLOBALS['allowedEXT'];
 $uploadError = array();
     //Start of uplaod
 if(isset($_POST['listingSubmit'])){
-    if($_FILES['listingImage']['size'] > 2){
+    if($_FILES['listingImage']['size'] > 2){//Checks if image has been selected.
+            //Image information variables
         $file = $_FILES['listingImage'];
         $file_name = $file['name'];
         $file_size = $file['size'];
         $file_tmp = $file['tmp_name'];
         $file_type= $file['type'];
+            //The new name of the image.
         $new_name = $_POST['listingName'];
         
             //Extension controls.
         $info = pathinfo($file_name);//Path info in order to get extension info.
         $ext = $info['extension']; //Get the extension of the file.
         $extText = explode('.', $file_name);//Another versoin of file extention.
-            //Conversion of listingName into file to check if file exists already.
+            //Conversion of listingName into filepath to check if file exists already.
         $file_name_check = $listingDir.basename($listingDir.$new_name.".".$ext);
     //END OF FILE CONFIG
             //Variables of listing info to store in json file.   
@@ -58,12 +59,9 @@ if(isset($_POST['listingSubmit'])){
                             $obj->type = $listingType;
                             $myobj = json_encode($obj);
                                     //Insert json object into folder with json file.
-                                $writer = fopen($listingFolder.$listingName.".json", "w");
+                                $writer = fopen($listingFolder.$listingName.".json", "w+");
                                 fwrite($writer, $myobj);
                                 echo $myobj;
-
-
-
                             echo "<script>alert('File inserted')</script>"; 
                         }
                         else{
@@ -87,11 +85,22 @@ if(isset($_POST['listingSubmit'])){
 }
 
 
-// $obj = '{"ListingImage": $_POST['listingImage'], "name": "isaac", "age": "24"}';
 
 
 
-
+if(isset($_GET['getListings'])){
+    $ListingContents = scandir($listingFolder);
+        foreach($ListingContents as $Listing){
+            $List = @file_get_contents($listingFolder.$Listing, true);
+            $Data = json_decode($List, true);
+            $Img = $Data['image'];
+            $name = $Data['name'];
+            $send = array('image'=>$Img, 'name'=>$name);
+            $newdata[] = $send;
+            
+        }
+    echo json_encode($newdata);
+}
 
 
 

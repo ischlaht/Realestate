@@ -1,6 +1,4 @@
-html{
-    /* height: 2000px; */
-}
+
 #loginShowBTN{
     width: 100px;
     height: 30px;
@@ -57,11 +55,23 @@ html{
 --------------------------------- 
 */
 
+#showNewListingBTN{
+    margin-left: 100px;
+}
 
-
+#ListingsAPP ul{
+    font-size: 150%;
+    font-weight: bold;
+    font-family: cursive ,'Times New Roman', Times, serif; 
+    font-style: italic;
+    text-align: center;
+    border-bottom: 5px solid blue;
+    padding: 10px;
+    background-color: black;
+    color: white;
+}
 
 #ListingsAPP{
-    padding-top: 20px;
     width: 100%;
     min-width: 320px;
     height: 2900px;
